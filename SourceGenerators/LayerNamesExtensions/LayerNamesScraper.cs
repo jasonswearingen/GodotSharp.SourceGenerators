@@ -50,7 +50,12 @@ namespace GodotSharp.SourceGenerators.LayerNamesExtensions
                         return true;
 
                         static string ReverseParts(string str, char sep = '_')
-                            => string.Join("", str.Split(sep).Reverse());
+                        {
+                            var split = str.Split(sep);
+                            split.Reverse();
+                            return string.Join("", str.Split(sep));
+                            //string.Join("", str.Split(sep)._Reverse())
+                        }
                     }
 
                     layer = default;
